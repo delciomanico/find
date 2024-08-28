@@ -1,0 +1,70 @@
+{{>_container}}
+<div class="container mt-5">
+    <h1 class="mb-4">Categorias</h1>
+    <div class="row mb-3">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Pesquisar">
+        </div>
+        <div class="col-auto">
+            <a href="/usuario/empresa/categoria/add"><button class="btn" style="background-color: #e84545; color: #fff;">Nova Categoria</button></a>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Slug</th>
+                <th>Empresa</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categoria}}
+             {{#each this}}
+             {{#if nome}}
+            <tr>
+                <td>{{nome}}</td>
+                <td>{{slug}}</td>
+                {{#each empresa}}
+                {{#if nome}}
+                <td>{{nome}}</td>
+                {{/if}}
+                {{/each}}
+                <td>
+                    <form action="/usuario/empresa/categoria/delete" method="post">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <a href="/usuario/empresa/categoria/edit/{{_id}}"><span class="status delivered btn btn-success">Editar</span></a>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+            {{/if}}
+            {{/each}}
+
+            {{else}}
+            <tr>
+                <h3>Nenhuma categoria registrada</h3>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+                <a href="#" class="page-link" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item disabled">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item disabled">
+                <a href="#" class="page-link">2</a>
+            </li>
+            <li class="page-item disabled">
+                <a href="#" class="page-link">Proximo</a>
+            </li>
+
+        </ul>
+    </nav>
+</div>

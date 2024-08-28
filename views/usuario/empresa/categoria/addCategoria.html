@@ -1,0 +1,27 @@
+{{>_container}}
+<h3 class="mb-4">Adicionar Categoria</h3>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/usuario/empresa/categoria/nova" method="post">
+            <label for="">Nome: </label>
+            <input type="text" name="nome" placeholder="Nome da categoria" required class="form-control">
+            <label for="">Slug: </label>
+            <input type="text" name="slug" placeholder="slug da categoria" required class="form-control">
+            <label for="">Empresa: </label>
+            <select name="empresa" id="" required class="custom-select">
+
+                {{#each empresa}}
+                {{#each this}}
+                {{#if nome}}
+                <option value="{{_id}}">{{nome}}</option>
+                {{/if}}
+                {{/each}}
+                {{else}}
+                <option value="0">Nenhuma empresa registrada</option>
+                {{/each}}
+            </select>
+            <button class="btn  mt-4" style="background-color: #e84545; color: #fff;">Cadastrar</button>
+        </form>
+    </div>
+</div>

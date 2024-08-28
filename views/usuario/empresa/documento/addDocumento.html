@@ -1,0 +1,28 @@
+{{>_container}}
+<h3 class="mb-4">Adicionar Documento</h3>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/usuario/empresa/documento/novo" method="post">
+            <input type="hidden" name="empresa" value="{{_idEmp}}">
+            <label for="">Nome: </label>
+            <input type="text" name="nome" placeholder="Nome do documento" required class="form-control">
+            <label for="">Documento: </label>
+            <input type="file" name="doc" id=""  required class="form-control">
+            <label for="">Categoria: </label>
+            <select name="categoria" id="" required class="custom-select">
+
+                {{#each categoria}}
+                {{#each this}}
+                {{#if nome}}
+                <option value="{{_id}}">{{nome}}</option>
+                {{/if}}
+                {{/each}}
+                {{else}}
+                <option value="0">Nenhuma categoria registrada</option>
+                {{/each}}
+            </select>
+            <button class="btn  mt-4" style="background-color: #e84545; color: #fff;">Cadastrar</button>
+        </form>
+    </div>
+</div>

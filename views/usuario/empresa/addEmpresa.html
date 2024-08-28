@@ -1,0 +1,13 @@
+{{>_container}}
+<h3 class="mb-4">Adicionar Empresa</h3>
+<div class="card">
+    <div class="card-body">
+        <form action="/usuario/empresa/nova" method="post">
+            <label for="">Empresa: </label>
+            <input type="text" name="nome" placeholder="Nome da empresa" required class="form-control">
+            <label for="">NIF: </label>
+            <input type="text" name="nif" placeholder="NIF da empresa" required class="form-control">
+            <button class="btn  mt-4" style="background-color: #e84545; color: #fff;">Cadastrar</button>
+        </form>
+    </div>
+</div>
